@@ -1,0 +1,62 @@
+<div class="">
+    <div *ngIf="errorMsg">
+        <strong>{{errorMsg}}</strong>
+    </div>
+    <div *ngIf="sucessMsg">
+        <strong>{{sucessMsg}}</strong>
+    </div>
+    <form [formGroup]="userForm">
+        <div>
+        <input type="text" formControlName="nome" placeholder="Nome">
+        </div><br>
+
+        <div>
+            <input type="number" formControlName="mat_siape" placeholder="Matricula SIAPE">
+        </div><br>
+
+        <div>
+            <input type="number" formControlName="salario" placeholder="Salário">
+        </div><br>
+
+        <div>
+            <input type="text" formControlName="cargo" placeholder="Cargo">
+        </div><br>
+
+        <div>
+            <input type="text" formControlName="certificacao" placeholder="Certificação">
+        </div><br>
+        <div *ngIf="!getParamId" (click)="userSubmit()">
+        <button class="button3">Criar</button>
+    </div>
+        <div *ngIf="getParamId" (click)="userUpdate()">
+        <button class="button1">Atualizar</button>
+    </div>
+    </form>
+</div>
+<style>
+    .button1 {
+    background-color: rgb(8, 137, 31);
+    color: black;
+    border: 2px solid #4c3ec7;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border-radius: 15px;
+  }
+.button1:hover {
+    background-color: #b30c0c;
+    cursor: pointer;
+}
+
+
+.button3 {
+  background-color: rgb(46, 12, 170);
+  color: rgb(213, 213, 213);
+  border: 2px solid #4c3ec7;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  border-radius: 15px;
+}
+.button3:hover {
+  background-color: #1cafc3;
+  cursor: pointer;
+}</style>

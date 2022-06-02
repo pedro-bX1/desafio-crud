@@ -1,0 +1,67 @@
+
+<div class="">
+  <input type="text" [(ngModel)]="searchValue" id="search" placeholder="Pesquise em qualquer campo">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Matricula Siape</th>
+                <th>Salário</th>
+                <th>Cargo</th>
+                <th>Certificação</th>
+                <th>Edições</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let us of readData | filter: searchValue">
+                <th >{{us.id}}</th>
+                <td>{{us.nome}}</td>
+                <td>{{us.mat_siape}}</td>
+                <td>{{us.salario}}</td>
+                <td>{{us.cargo}}</td>
+                <td>{{us.certificacao}}</td>
+                <td>
+                <button class="button1" [routerLink]="['/create',us.id]">Atualizar</button>
+                <button class="button2" (click)="deleteID(us.id)">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<style>
+  .button1 {
+  background-color: rgb(8, 137, 31);
+  color: rgb(255, 255, 255);
+  border: 2px solid #c73e3e;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  border-radius: 15px
+}
+.button1:hover {
+  background-color: #52da42;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: rgb(170, 12, 12);
+  color: rgb(213, 213, 213);
+  border: 2px solid #4c3ec7;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding: 10px 10px;
+}
+.button2:hover {
+  background-color: #4f1717;
+  cursor: pointer;
+}
+table {
+  width: 100%;
+  border: 1px solid;
+}
+
+th {
+  height: 50px;
+}
+
+</style>
