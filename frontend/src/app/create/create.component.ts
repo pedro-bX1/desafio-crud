@@ -12,9 +12,9 @@ export class CreateComponent implements OnInit {
 
   constructor(private service:ApiserviceService, private router: ActivatedRoute) { }
 
-  errorMsg:any;
-  sucessMsg:any;
-  getParamId:any;
+  errorMsg:any; //exibir mensagem de erro
+  sucessMsg:any; //exibir mensagem de sucesso
+  getParamId:any; //
   
 
   ngOnInit(): void {
@@ -35,6 +35,7 @@ export class CreateComponent implements OnInit {
     
   }
   userForm = new FormGroup({
+    //rastreando valores para que sejam validadas, evitando falta de inserções no formulário.
     'nome':new FormControl('', Validators.required),
     'mat_siape':new FormControl('', Validators.required),
     'salario':new FormControl('', Validators.required),
