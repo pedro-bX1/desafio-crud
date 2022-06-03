@@ -4,6 +4,7 @@ import { CreateComponent } from './create/create.component';
 import { ReadComponent } from './read/read.component';
 
 const routes: Routes = [
+  //rotas do projeto
   {path:'create', component: CreateComponent},
   {path:'create/:id', component: CreateComponent},
   {path:'read', component: ReadComponent}];
