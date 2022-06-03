@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyparser.json());
 
-//conexão banco de dados
+//criando conexão para banco de dados
 const db = mysql.createConnection({
     host:'localhost',
     user:'root',
@@ -17,11 +17,13 @@ const db = mysql.createConnection({
     port:3306
 });
 
+//conexão e informação de conexão com banco de dados
 db.connect(err=>{
     if (err){console.log(err, 'err');}
     console.log('bd conectado...');
 });
 
+//passando com uma rota /func e retornando todos os elementos 
 app.get('/func',(req,res)=>{
 
     let qr = `SELECT * FROM funcionarios`;
@@ -39,6 +41,8 @@ app.get('/func',(req,res)=>{
     });
 }); 
 
+
+//get para pegar dado específico utilizado em atualização de um dado, usando ID como referência
 app.get('/func/:id',(req,res)=>{
     let gID = req.params.id;
     let qr = `SELECT * FROM funcionarios WHERE id='${gID}'`;
@@ -59,6 +63,8 @@ app.get('/func/:id',(req,res)=>{
     });
 });
 
+
+//método post com criação de variáveis para salvar no banco de dados
 app.post('/func',(req,res)=>{
     console.log(req.body,'createdata');
 
@@ -79,6 +85,8 @@ app.post('/func',(req,res)=>{
     });
 });
     
+
+//método put para atualização de dados, criação de variávies para atualização
 app.put('/func/:id',(req,res)=>{
     console.log(req.body,'updatedata');
 
@@ -101,6 +109,7 @@ app.put('/func/:id',(req,res)=>{
     });
 });
 
+//método delete para apagar dados do banco
 app.delete('/func/:id',(req,res)=>{
     //console.log(req.body,'deletedata');
     let qID = req.params.id;
@@ -119,6 +128,7 @@ app.delete('/func/:id',(req,res)=>{
 
 
 
+//rodando na porta 3000
 app.listen(3000, ()=>{
     console.log('server running');
 });
