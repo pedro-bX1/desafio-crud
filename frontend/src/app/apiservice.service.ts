@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class ApiserviceService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient) { }//utilizando httpclient para tornar possíveis as requisições HTTP (get, post, put ...)
 
   apiUrl = 'http://localhost:3000/func';
-
+//observables para que os métodos em index.js faça as devidas funções  do http 
   getAllData():Observable<any>{
     return this._http.get(`${this.apiUrl}`);
   }
